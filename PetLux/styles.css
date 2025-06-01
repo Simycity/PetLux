@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+
+/* Reset de margens e aplicação da fonte */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Variáveis de cor */
+:root {
+  --cor-principal: #5c7085;
+  --cor-barra-lateral: #6e8297;
+  --cor-txt: #7f93a9;
+  --hover: #a2b6cd;
+  --box: #91a5bb;
+  --fonte: Times New Roman;
+}
+
+/* Altura da página para demonstrar scroll e barra lateral fixa */
+body {
+  height: 900vh;
+  background-color: var(--cor-principal);
+}
+
+/* Barra lateral (menu) */
+nav.menu-lateral {
+  width: 100px;
+  height: 100%;
+  background-color: var(--cor-barra-lateral);
+  padding: 40px 0 40px 1%;
+  box-shadow: 3px 0 0 var(--box);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  overflow-y: auto;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Quando a barra lateral está expandida */
+nav.menu-lateral.expandir {
+  width: 300px;
+}
+
+nav.menu-lateral a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Botão para expandir o menu */
+.btn-expandir {
+  width: 100%;
+  padding-left: 10px;
+}
+
+.btn-expandir > i {
+  color: black;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Lista de itens no menu */
+ul {
+  height: 100%;
+  list-style-type: none;
+}
+
+ul li.item-menu {
+  transition: .2s;
+}
+
+/* Item ativo */
+ul li.ativo {
+  background-color: var(--hover);
+}
+
+/* Hover nos itens */
+ul li.item-menu:hover {
+  background-color: var(--hover);
+}
+
+ul li.item-menu a {
+  color: black;
+  font-size: 20px;
+  padding: 20px 4%;
+  display: flex;
+  margin-bottom: 20px;
+  line-height: 40px;
+}
+
+/* Texto do link (aparece só quando menu está expandido) */
+ul li.item-menu a .txt-link {
+  margin-left: 70px;
+  transition: 1s;
+  opacity: 0;
+}
+
+/* Mostra o texto ao expandir */
+nav.menu-lateral.expandir .txt-link {
+  margin-left: 40px;
+  opacity: 1;
+}
+
+/* Ícones do menu */
+ul li.item-menu a .icon > i {
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+/* Título principal */
+h1 {
+  color: var(--cor-txt);
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilo dos links do submenu */
+.submenu {
+  display: none;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.item-menu.active .submenu {
+  display: block;
+}
+
+.submenu li a {
+  color: black;
+  text-decoration: none;
+  padding: 5px 0;
+  display: block;
+  transition: color 0.3s;
+}
+
+.submenu li a:hover {
+  color: #0a4b75;
+}
+/* Responsividade */
+@media (max-width: 768px) {
+  nav.menu-lateral {
+  width: 60px;
+  padding-left: 0;
+  }
+
+  nav.menu-lateral.expandir {
+    width: 250px;
+  }
+
+  .txt-link {
+    display: none;
+  }
+
+  nav.menu-lateral.expandir .txt-link {
+    display: inline;
+    opacity: 1;
+  }
+
+  .btn-expandir {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  ul li.item-menu a {
+    padding: 15px 5%;
+    justify-content: center;
+  }
+
+  nav.menu-lateral.expandir ul li.item-menu a {
+    justify-content: flex-start;
+  }
+
+  ul li.item-menu a .icon {
+    margin-right: 0;
+  }
+
+  nav.menu-lateral.expandir ul li.item-menu a .icon {
+    margin-left: 10px;
+  }
+
+  h1 {
+    margin-left: 80px;
+    font-size: 24px;
+  }
+
+  nav.menu-lateral.expandir ~ h1 {
+    margin-left: 260px;
+  }
+}
+
+/* Container para centralizar a imagem */
+.imagem-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px;
+  max-width: 100%;
+}
+
+/* Estilo da imagem para ser responsiva */
+.imagem-container img {
+  width: 100%;
+  max-width: 800px; /* evita que fique muito grande em telas largas */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/*Tag p*/
+p{
+  color: var(--cor-txt);
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: var(--fonte);
+}
